@@ -20,16 +20,16 @@ int main(void)
     DDRD = 0x00;
     PORTA = 0x00;
     PORTB = 0x00;
-    PORTD = 0x01;                   // 1 по умолчанию
-    unsigned char count_10 = 0;     // дес€тки   
-    unsigned char count_1 = 0;      // единицы
+    PORTD = 0x01;                   // 1 default
+    unsigned char count_10 = 0;     // tens 
+    unsigned char count_1 = 0;      // one
     bool but_state = false;
     PORTA = number[count_10];
     PORTB = number[count_1];
     while (1)
     {
-        // нопка нажата - PIND == 0bxxxxxxx0 (0x00)
-        // нопка отжата - PIND == 0bxxxxxxx1 (0x01)
+        //Button on - PIND == 0bxxxxxxx0 (0x00)
+        //Button off - PIND == 0bxxxxxxx1 (0x01)
         
         if ( but_state ^ (~PIND & 0x01)){
             but_state = !but_state;
